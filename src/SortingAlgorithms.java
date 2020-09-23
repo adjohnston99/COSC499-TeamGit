@@ -9,7 +9,7 @@ public class SortingAlgorithms {
 	    System.out.println(Arrays.equals(expected, result)) ;
 
 	    int[] resultInsertion = insertionSort(actual);
-	    System.out.println(Arrays.equals(expected,result));
+	    System.out.println(Arrays.equals(expected,resultInsertion));
 	}
 
 	public Object[] bubbleSort() {
@@ -28,7 +28,7 @@ public class SortingAlgorithms {
 				j++;
 			}
 		}
-		return null;
+		return a;
 	}
 
 	public static int[] mergeSort(int[] toSort, int n) {
