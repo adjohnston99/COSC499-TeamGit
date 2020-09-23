@@ -7,21 +7,21 @@ public class SortingAlgorithms {
 
 		Random random = new Random();
 
-		Integer[] arr = new Integer[size];
+		int[] arr = new int[size];
 
 		for (int i = 0; i < arr.length; i++)
 			arr[i] = random.nextInt(size);
 
 		long bubbleSortStartTime = System.currentTimeMillis();
-		Object[] bubbleSorted = bubbleSort(arr);
+		int[] bubbleSorted = bubbleSort(arr);
 		long bubbleSortEndTime = System.currentTimeMillis();
 
 		long insertionSortStartTime = System.currentTimeMillis();
-		Object[] insertionSorted = insertionSort(arr);
+		int[] insertionSorted = insertionSort(arr);
 		long insertionSortEndTime = System.currentTimeMillis();
 
 		long mergeSortStartTime = System.currentTimeMillis();
-		Object[] mergeSorted = mergeSort(arr);
+		int[] mergeSorted = mergeSort(arr);
 		long mergeSortEndTime = System.currentTimeMillis();
 
 		System.out.println("Test array of size " + size + ": " + Arrays.toString(arr));
@@ -30,33 +30,33 @@ public class SortingAlgorithms {
 		System.out.println("Merge sort took " + (mergeSortEndTime - mergeSortStartTime) + "ms");
 	}
 
-	public static Object[] bubbleSort(Object[] a) {
+	public static int[] bubbleSort(int[] a) {
 
 		return null;
 	}
 
-	public static Object[] insertionSort(Object[] a) {
+	public static int[] insertionSort(int[] a) {
 	//jodi :))
 
 		return null;
 	}
 
-	public static Object[] mergeSort(Object[] a) {
+	public static int[] mergeSort(int[] a) {
 		if (a.length <= 1)
 			return a;
 		else {
-			Object[] f = new Object[(a.length+1)/2];
-			Object[] b = new Object[a.length - f.length];
+			int[] f = new int[(a.length+1)/2];
+			int[] b = new int[a.length - f.length];
 			return mergeSort(f, b);
 		}
 	}
 
-	public static Object[] mergeSort(Object[] a, Object[] b) {
+	public static int[] mergeSort(int[] a, int[] b) {
 		return merge(mergeSort(a), mergeSort(b));
 	}
 
-	private static Object[] merge(Object[] a, Object[] b) {
-		Object[] r = new Object[a.length + b.length];
+	private static int[] merge(int[] a, int[] b) {
+		int[] r = new int[a.length + b.length];
 		int j = 0, k = 0;
 		for (int i = 0; i < r.length; i++) {
 			if (a[j] < b[k]) {
