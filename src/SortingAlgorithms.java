@@ -6,12 +6,23 @@ public class SortingAlgorithms {
         int[] actual = { 5, 1, 6, 2, 3, 4 };
 	    int[] expected = { 1, 2, 3, 4, 5, 6 };
 	    int[] result = mergeSort(actual, actual.length);
-	    System.out.println(Arrays.equals(expected, result)) ;
+	    System.out.println(Arrays.equals(expected, result));
+	    int[] resultBubble = bubbleSort(actual);
+	    System.out.println(Arrays.equals(expected, resultBubble));
 	}
 
-	public Object[] bubbleSort() {
+	public static int[] bubbleSort(int[] array) {
 		//Rohan :) 
-		return null;
+		 int l = array.length; 
+	        for (int i = 0; i < l-1; i++) 
+	            for (int j = 0; j < l-i-1; j++) 
+	                if (array[j] > array[j+1]) 
+	                { 
+	                    int temp = array[j]; 
+	                    array[j] = array[j+1]; 
+	                    array[j+1] = temp; 
+	                } 
+	        return array;
 	}
 	//jodi :))
 	public Object[] insertionSort() {
