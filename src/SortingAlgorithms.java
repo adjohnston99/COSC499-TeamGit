@@ -1,24 +1,49 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class SortingAlgorithms {
 	public static void main(String[] args) {
-        System.out.println("Hello, World!");
-        int[] actual = { 5, 1, 6, 2, 3, 4 };
-	    int[] expected = { 1, 2, 3, 4, 5, 6 };
-	    int[] result = mergeSort(actual, actual.length);
-	    System.out.println(Arrays.equals(expected, result)) ;
+		int size = 100;
+
+		Random random = new Random();
+
+		Integer[] arr = new Integer[size];
+
+		for (int i = 0; i < arr.length; i++)
+			arr[i] = random.nextInt(size);
+
+		long bubbleSortStartTime = System.currentTimeMillis();
+		Object[] bubbleSorted = bubbleSort(arr);
+		long bubbleSortEndTime = System.currentTimeMillis();
+
+		long insertionSortStartTime = System.currentTimeMillis();
+		Object[] insertionSorted = insertionSort(arr);
+		long insertionSortEndTime = System.currentTimeMillis();
+
+		long mergeSortStartTime = System.currentTimeMillis();
+		Object[] mergeSorted = mergeSort(arr);
+		long mergeSortEndTime = System.currentTimeMillis();
+
+		System.out.println("Test array of size " + size + ": " + Arrays.toString(arr));
+		System.out.println("Bubble sort took " + (bubbleSortEndTime - bubbleSortStartTime) + "ms");
+		System.out.println("Insertion sort took " + (insertionSortEndTime - insertionSortStartTime) + "ms");
+		System.out.println("Merge sort took " + (mergeSortEndTime - mergeSortStartTime) + "ms");
 	}
 
-	public Object[] bubbleSort() {
+	public static Object[] bubbleSort(Object[] a) {
 
 		return null;
 	}
+
+	public static Object[] insertionSort(Object[] a) {
 	//jodi :))
-	public Object[] insertionSort() {
 
 		return null;
 	}
 
+	public static Object[] mergeSort(Object[] a) {
+
+		return null;
 	public static int[] mergeSort(int[] toSort, int n) {
 	    if (n < 2) {
 	        return toSort;
@@ -26,7 +51,7 @@ public class SortingAlgorithms {
 	    int mid = n / 2;
 	    int[] a = new int[mid];
 	    int[] b = new int[n - mid];
-	 
+
 	    for (int i = 0; i < mid; i++) {
 	        a[i] = toSort[i];
 	    }
@@ -35,13 +60,13 @@ public class SortingAlgorithms {
 	    }
 	    mergeSort(a, mid);
 	    mergeSort(b, n - mid);
-	 
+
 	    merge(toSort, a, b, mid, n - mid);
 	    return toSort ;
 	}
-	
+
 	public static void merge (int[] a, int[] l, int[] r, int left, int right) {
-	 
+
 	    int i = 0, j = 0, k = 0;
 	    while (i < left && j < right) {
 	        if (l[i] <= r[j]) {
