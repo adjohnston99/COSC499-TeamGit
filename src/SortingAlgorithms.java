@@ -14,6 +14,7 @@ public class SortingAlgorithms {
 	}
 
 	public Object[] mergeSort() {
+
 		return null;
 	}
 }
