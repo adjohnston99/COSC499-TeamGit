@@ -30,11 +30,21 @@ public class SortingAlgorithms {
 		System.out.println("Merge sort took " + (mergeSortEndTime - mergeSortStartTime) + "ms");
 	}
 
-	public static int[] bubbleSort(int[] a) {
-
-		return null;
+	public static int[] bubbleSort(int[] array) {
+		//Rohan :)
+		 int l = array.length;
+	        for (int i = 0; i < l-1; i++)
+	            for (int j = 0; j < l-i-1; j++)
+	                if (array[j] > array[j+1])
+	                {
+	                    int temp = array[j];
+	                    array[j] = array[j+1];
+	                    array[j+1] = temp;
+	                }
+	        return array;
 	}
 
+	//jodi :))
 	public static int[] insertionSort(int[] a) {
 		int length = a.length;
 		for(int i = 1; i < length; i ++){
