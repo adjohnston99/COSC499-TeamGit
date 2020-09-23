@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class SortingAlgorithms {
 	public static void main(String[] args) {
-		int size = 100;
+		int size = 10000;
 
 		Random random = new Random();
 
@@ -15,11 +15,11 @@ public class SortingAlgorithms {
 		System.out.println("Test array of size " + size + ": " + Arrays.toString(arr));
 
 		long bubbleSortStartTime = System.currentTimeMillis();
-//		int[] bubbleSorted = bubbleSort(arr);
+		int[] bubbleSorted = bubbleSort(arr);
 		long bubbleSortEndTime = System.currentTimeMillis();
 
 		long insertionSortStartTime = System.currentTimeMillis();
-//		int[] insertionSorted = insertionSort(arr);
+		int[] insertionSorted = insertionSort(arr);
 		long insertionSortEndTime = System.currentTimeMillis();
 
 		long selectionSortStartTime = System.currentTimeMillis();
@@ -28,7 +28,7 @@ public class SortingAlgorithms {
 
 		System.out.println("Bubble sort took " + (bubbleSortEndTime - bubbleSortStartTime) + "ms");
 		System.out.println("Insertion sort took " + (insertionSortEndTime - insertionSortStartTime) + "ms");
-		System.out.println("Merge sort took " + (selectionSortEndTime - selectionSortStartTime) + "ms");
+		System.out.println("Selection sort took " + (selectionSortEndTime - selectionSortStartTime) + "ms");
 	}
 
 	public static int[] bubbleSort(int[] array) {
