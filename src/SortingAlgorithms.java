@@ -42,45 +42,71 @@ public class SortingAlgorithms {
 	}
 
 	public static Object[] mergeSort(Object[] a) {
-
-		return null;
-	public static int[] mergeSort(int[] toSort, int n) {
-	    if (n < 2) {
-	        return toSort;
-	    }
-	    int mid = n / 2;
-	    int[] a = new int[mid];
-	    int[] b = new int[n - mid];
-
-	    for (int i = 0; i < mid; i++) {
-	        a[i] = toSort[i];
-	    }
-	    for (int i = mid; i < n; i++) {
-	        b[i - mid] = toSort[i];
-	    }
-	    mergeSort(a, mid);
-	    mergeSort(b, n - mid);
-
-	    merge(toSort, a, b, mid, n - mid);
-	    return toSort ;
+		if (a.length <= 1)
+			return a;
+		else {
+			Object[] f = new Object[(a.length+1)/2];
+			Object[] b = new Object[a.length - f.length];
+			return mergeSort(f, b);
+		}
 	}
 
-	public static void merge (int[] a, int[] l, int[] r, int left, int right) {
-
-	    int i = 0, j = 0, k = 0;
-	    while (i < left && j < right) {
-	        if (l[i] <= r[j]) {
-	            a[k++] = l[i++];
-	        }
-	        else {
-	            a[k++] = r[j++];
-	        }
-	    }
-	    while (i < left) {
-	        a[k++] = l[i++];
-	    }
-	    while (j < right) {
-	        a[k++] = r[j++];
-	    }
+	public static Object[] mergeSort(Object[] a, Object[] b) {
+		return merge(mergeSort(a), mergeSort(b));
 	}
+
+	private static Object[] merge(Object[] a, Object[] b) {
+		Object[] r = new Object[a.length + b.length];
+		int j = 0, k = 0;
+		for (int i = 0; i < r.length; i++) {
+			if (a[j] < b[k]) {
+				r[i] = a[j];
+				j++;
+			} else {
+				r[i] = b[k];
+				k++;
+			}
+		}
+		return r;
+	}
+
+//	public static int[] mergeSort(int[] toSort, int n) {
+//	    if (n < 2) {
+//	        return toSort;
+//	    }
+//	    int mid = n / 2;
+//	    int[] a = new int[mid];
+//	    int[] b = new int[n - mid];
+//
+//	    for (int i = 0; i < mid; i++) {
+//	        a[i] = toSort[i];
+//	    }
+//	    for (int i = mid; i < n; i++) {
+//	        b[i - mid] = toSort[i];
+//	    }
+//	    mergeSort(a, mid);
+//	    mergeSort(b, n - mid);
+//
+//	    merge(toSort, a, b, mid, n - mid);
+//	    return toSort ;
+//	}
+//
+//	public static void merge (int[] a, int[] l, int[] r, int left, int right) {
+//
+//	    int i = 0, j = 0, k = 0;
+//	    while (i < left && j < right) {
+//	        if (l[i] <= r[j]) {
+//	            a[k++] = l[i++];
+//	        }
+//	        else {
+//	            a[k++] = r[j++];
+//	        }
+//	    }
+//	    while (i < left) {
+//	        a[k++] = l[i++];
+//	    }
+//	    while (j < right) {
+//	        a[k++] = r[j++];
+//	    }
+//	}
 }
