@@ -7,6 +7,9 @@ public class SortingAlgorithms {
 	    int[] expected = { 1, 2, 3, 4, 5, 6 };
 	    int[] result = mergeSort(actual, actual.length);
 	    System.out.println(Arrays.equals(expected, result)) ;
+
+	    int[] resultInsertion = insertionSort(actual);
+	    System.out.println(Arrays.equals(expected,result));
 	}
 
 	public Object[] bubbleSort() {
@@ -14,8 +17,17 @@ public class SortingAlgorithms {
 		return null;
 	}
 	//jodi :))
-	public Object[] insertionSort() {
+	public static int[] insertionSort(int[] a) {
+		int length = a.length;
+		for(int i = 1; i < length; i ++){
+			int pointer = a[i];
+			int j = i - 1;
 
+			while(j >= 0 && a[j] > pointer) {
+				a[j+1] = a[j];
+				j++;
+			}
+		}
 		return null;
 	}
 
