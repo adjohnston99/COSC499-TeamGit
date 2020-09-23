@@ -36,9 +36,17 @@ public class SortingAlgorithms {
 	}
 
 	public static int[] insertionSort(int[] a) {
-	//jodi :))
+		int length = a.length;
+		for(int i = 1; i < length; i ++){
+			int pointer = a[i];
+			int j = i - 1;
 
-		return null;
+			while(j >= 0 && a[j] > pointer) {
+				a[j+1] = a[j];
+				j++;
+			}
+		}
+		return a;
 	}
 
 	public static int[] mergeSort(int[] a) {
